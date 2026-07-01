@@ -12,6 +12,8 @@ const INITIAL_FORM_STATE = {
   message: "",
 }
 
+const CONTACT_SECTION_BACKGROUND = encodeURI("/contact.jpg")
+
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { threshold: 0.1 })
@@ -45,9 +47,14 @@ export function ContactSection() {
       ref={sectionRef}
       className="section-bloom relative overflow-hidden"
     >
+      <div
+        className="contact-section-bg"
+        aria-hidden="true"
+        style={{ backgroundImage: `url("${CONTACT_SECTION_BACKGROUND}")` }}
+      />
       <div className="page-container relative z-10">
         <div
-          className={`section-intro-block mb-16 transition-all duration-1000 ${
+          className={`contact-section-intro section-intro-block mb-16 transition-all duration-1000 ${
             isInView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
@@ -68,7 +75,7 @@ export function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-surface rounded-[var(--radius-lg)] p-8 lg:p-10"
+              className="contact-form-panel glass-surface rounded-[var(--radius-lg)] p-8 lg:p-10"
             >
               <div className="space-y-6">
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -163,7 +170,7 @@ export function ContactSection() {
                 : "translate-x-10 opacity-0"
             }`}
           >
-            <div className="space-y-8">
+            <div className="contact-details-panel glass-surface space-y-8 rounded-[var(--radius-lg)] p-8 lg:p-10">
               <div>
                 <h3 className="card-title text-[18px]">Contact Details</h3>
                 <p className="mb-0 text-[16px] text-[var(--text-body)]">

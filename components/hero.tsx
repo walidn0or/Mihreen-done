@@ -8,6 +8,7 @@ const HERO_BACKGROUNDS = [
   "/background.jpg",
   "/background -1.jpg",
   "/background -2.jpg",
+  "/background - 3.jpg",
 ].map((path) => encodeURI(path))
 
 const SLIDE_INTERVAL_MS = 4000
