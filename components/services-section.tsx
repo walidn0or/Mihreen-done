@@ -18,6 +18,8 @@ import {
   ArrowRight,
 } from "lucide-react"
 
+const SERVICES_SECTION_BACKGROUND = encodeURI("/Choose-us.png")
+
 const miningExtractionCapabilities = [
   {
     title: "1. Exploration Support & Resource Identification",
@@ -323,8 +325,13 @@ export function ServicesSection() {
   const closeServiceModal = () => setOpenServiceTitle(null)
 
   return (
-    <section id="services" className="section-bloom">
-      <div className="page-container">
+    <section id="services" className="section-bloom relative overflow-hidden">
+      <div
+        className="services-section-bg"
+        aria-hidden="true"
+        style={{ backgroundImage: `url("${SERVICES_SECTION_BACKGROUND}")` }}
+      />
+      <div className="page-container relative z-10">
         <div className="services-section-intro text-center mb-16">
           <h2 className="section-title">Our Services</h2>
           <p className="section-subtitle mx-auto">

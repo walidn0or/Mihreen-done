@@ -4,7 +4,7 @@ import { useRef } from "react"
 import { useInView } from "@/hooks/use-in-view"
 import { Award, CheckCircle2, Clock, Users } from "lucide-react"
 
-const WHY_SECTION_BACKGROUND = encodeURI("/Choose-us.jpg")
+const WHY_SECTION_BACKGROUND = encodeURI("/Choose-us.png")
 
 const whyChooseUsItems = [
   {
