@@ -4,8 +4,6 @@ import { useRef } from "react"
 import { useInView } from "@/hooks/use-in-view"
 import { Award, CheckCircle2, Clock, Users } from "lucide-react"
 
-const WHY_SECTION_BACKGROUND = encodeURI("/Choose-us.png")
-
 const whyChooseUsItems = [
   {
     icon: Award,
@@ -31,11 +29,6 @@ export function WhyUsSection() {
 
   return (
     <section id="why" ref={sectionRef} className="why-section section-bloom">
-      <div
-        className="why-section-bg"
-        aria-hidden="true"
-        style={{ backgroundImage: `url("${WHY_SECTION_BACKGROUND}")` }}
-      />
       <div className="page-container relative z-10">
         <div
           className={`why-us-header transition-all duration-700 ${

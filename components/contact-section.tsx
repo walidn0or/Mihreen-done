@@ -4,15 +4,13 @@ import { useRef, useState } from "react"
 import { useInView } from "@/hooks/use-in-view"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react"
 
 const INITIAL_FORM_STATE = {
   name: "",
   email: "",
   message: "",
 }
-
-const CONTACT_SECTION_BACKGROUND = encodeURI("/contact.jpg")
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -47,11 +45,6 @@ export function ContactSection() {
       ref={sectionRef}
       className="section-bloom relative overflow-hidden"
     >
-      <div
-        className="contact-section-bg"
-        aria-hidden="true"
-        style={{ backgroundImage: `url("${CONTACT_SECTION_BACKGROUND}")` }}
-      />
       <div className="page-container relative z-10">
         <div
           className={`contact-section-intro section-intro-block mb-16 transition-all duration-1000 ${
@@ -193,6 +186,12 @@ export function ContactSection() {
                     href: "mailto:info@mihreenllc.us",
                   },
                   {
+                    icon: MessageCircle,
+                    label: "WhatsApp",
+                    value: "Add your number",
+                    href: "https://wa.me/",
+                  },
+                  {
                     icon: MapPin,
                     label: "Address",
                     value: "145 century Dr Alexandria VA",
@@ -204,7 +203,9 @@ export function ContactSection() {
                       ? "contact-detail-icon--sky"
                       : index === 1
                         ? "contact-detail-icon--mint"
-                        : "contact-detail-icon--soft"
+                        : index === 2
+                          ? "contact-detail-icon--soft"
+                          : "contact-detail-icon--sky"
 
                   return (
                   <div key={item.label} className="flex gap-4">
@@ -220,6 +221,8 @@ export function ContactSection() {
                       {item.href ? (
                         <a
                           href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="block font-medium text-[var(--text-heading)] text-sm hover:text-[var(--green)]"
                         >
                           {item.value}

@@ -7,7 +7,7 @@ import Link from "next/link"
 const HERO_BACKGROUNDS = [
   "/background.jpg",
   "/background -1.png",
-  "/background -2.jpg",
+  "/background -2.png",
   "/background - 3.jpg",
 ].map((path) => encodeURI(path))
 
